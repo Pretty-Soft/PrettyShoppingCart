@@ -1,4 +1,4 @@
-﻿@* <div class="header">
+﻿<div class="header">
     <a class="skip" href="#main">@T("Header.SkipNavigation.Text")</a>
     @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderBefore })
     <div class="header-upper">
@@ -24,74 +24,5 @@
     </div>
     @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderAfter })
 </div>
- *@
 
-@* Pretty Mart — Looketime-Style Enhanced Header *@
-@inject Nop.Core.IWebHelper webHelper
 
-<!-- Include Tailwind (only if not already added in layout) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-pink-100 dark:border-gray-700 shadow-sm animate-fadeIn">
-    <div class="max-w-7xl mx-auto px-4 md:px-8 py-3">
-
-        <!-- 🌐 Original nopCommerce Header -->
-        <div class="header">
-            <a class="skip" href="#main">@T("Header.SkipNavigation.Text")</a>
-
-            @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderBefore })
-
-            <div class="header-upper flex justify-between items-center flex-wrap gap-4">
-                <div class="header-selectors-wrapper flex gap-2 items-center">
-                    @await Component.InvokeAsync(typeof(TaxTypeSelectorViewComponent))
-                    @await Component.InvokeAsync(typeof(CurrencySelectorViewComponent))
-                    @await Component.InvokeAsync(typeof(LanguageSelectorViewComponent))
-                    @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderSelectors })
-                </div>
-
-                <div class="header-links-wrapper flex gap-3 items-center">
-                    @await Component.InvokeAsync(typeof(HeaderLinksViewComponent))
-                    @await Component.InvokeAsync(typeof(FlyoutShoppingCartViewComponent))
-                </div>
-            </div>
-
-            @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderMiddle })
-
-            <div class="header-lower flex justify-between items-center mt-3">
-                <div class="header-logo">
-                    @await Component.InvokeAsync(typeof(LogoViewComponent))
-                </div>
-
-                <div class="search-box store-search-box flex-1 mx-6">
-                    @await Component.InvokeAsync(typeof(SearchBoxViewComponent))
-                </div>
-            </div>
-
-            @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderAfter })
-        </div>
-        <!-- 🌐 End nopCommerce Dynamic Header -->
-
-    </div>
-</header>
-
-<!-- Add space for fixed header -->
-<div class="pt-28"></div>
-
-<!-- Fade-in animation -->
-<style>
-    @@keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animate-fadeIn {
-        animation: fadeIn 0.6s ease-out;
-    }
-</style>
