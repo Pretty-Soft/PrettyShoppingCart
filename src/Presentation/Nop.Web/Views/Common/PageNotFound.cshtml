@@ -6,11 +6,88 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-not-found-page");
 }
-<div class="page not-found-page">
-    <div class="page-title">
-        <h1>@T("PageTitle.PageNotFound")</h1>
+
+<p>404 - Page Not Found | Pretty Mart</p>
+<br />
+    <!-- ✅ Tailwind CDN for animation & styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @@keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-out;
+      }
+    </style>
+ 
+  <div
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-100 text-center p-6 animate-fadeIn"
+  >
+    <div class="flex flex-col items-center space-y-6">
+      <!-- 🚨 Animated Icon -->
+      <div class="animate-bounce" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-20 h-20 text-pink-500 drop-shadow-lg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m0 3.75h.007v.007H12v-.007z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 12c0 5.385 4.365 9.75 9.75 9.75s9.75-4.365 9.75-9.75S17.385 2.25 12 2.25 2.25 6.615 2.25 12z"
+          />
+        </svg>
+      </div>
+
+      <!-- 🌸 Headings -->
+      <h1 class="text-6xl font-extrabold text-gray-800">404</h1>
+      <h2 class="text-2xl font-semibold text-pink-600">
+        পৃষ্ঠা পাওয়া যায়নি / Page Not Found
+      </h2>
+
+      <!-- 💬 Message Box -->
+      <p
+        class="text-gray-600 max-w-md bg-white/70 p-4 rounded-xl shadow-md border border-pink-100 backdrop-blur-sm"
+      >
+        দুঃখিত! আপনি যে পৃষ্ঠাটি খুঁজছেন সেটি মুছে ফেলা হয়েছে, স্থানান্তর করা
+        হয়েছে বা সাময়িকভাবে অনুপলব্ধ। <br />
+        <span class="block mt-3 text-pink-600 font-semibold">
+          Pretty Mart-এর সাথে আবার চেষ্টা করুন বা হোমপেজে ফিরে যান।
+        </span>
+      </p>
+
+      <!-- 🏠 Go Home Button -->
+      <a
+        href="/"
+        class="mt-4 inline-block bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-transform transform hover:scale-105"
+      >
+        🏠 ফিরে যান হোম পেজে / Go Home
+      </a>
     </div>
-    <div class="page-body">
-        @await Component.InvokeAsync(typeof(TopicBlockViewComponent), new { systemName = "PageNotFound" })
-    </div>
-</div>
+
+    <!-- ⚙️ Footer -->
+    <footer class="mt-10 text-sm text-gray-500">
+      © <span id="year"></span> Pretty Mart – All rights reserved.
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </div>
+
+
