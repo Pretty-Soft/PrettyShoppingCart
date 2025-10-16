@@ -8169,7 +8169,9 @@ label, label + * {
     margin: 0 auto 30px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding: 25px 0;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 15px 0;
     text-align: center;
   }
 
