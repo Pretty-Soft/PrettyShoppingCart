@@ -807,7 +807,7 @@ label, label + * {
 
 .ui-dialog-content .back-in-stock-subscription-page .button-1 {
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 15px;
   font-size: 15px;
   color: #fff;
@@ -816,7 +816,7 @@ label, label + * {
 
 .ui-dialog-content .back-in-stock-subscription-page .button-1:hover,
 .ui-dialog-content .back-in-stock-subscription-page .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .eu-cookie-bar-notification {
@@ -843,7 +843,7 @@ label, label + * {
   min-width: 60px;
   margin: 5px 0 10px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 8px 12px;
   font-size: 14px;
   color: #fff;
@@ -851,7 +851,7 @@ label, label + * {
 
 .eu-cookie-bar-notification button:hover,
 .eu-cookie-bar-notification button:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .eu-cookie-bar-notification a {
@@ -1043,17 +1043,18 @@ label, label + * {
   min-width: 86px;
   height: 36px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 0 15px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
-.search-box .search-box-button:hover,
-.search-box .search-box-button:focus {
-  background-color: #248ece;
-}
+  .search-box .search-box-button:hover,
+  .search-box .search-box-button:focus {
+    background-color: #5f5f09;
+  }
 
 .search-box .ui-autocomplete-loading {
   background: #fff url('../images/ajax-loader-small.gif') left center no-repeat;
@@ -1240,17 +1241,18 @@ label, label + * {
   float: right;
   height: 36px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 0 15px;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
-.newsletter-subscribe-button:hover,
-.newsletter-subscribe-button:focus {
-  background-color: #248ece;
-}
+  .newsletter-subscribe-button:hover,
+  .newsletter-subscribe-button:focus {
+    background-color: #5f5f09;
+  }
 
 .newsletter-email .options {
   clear: both;
@@ -1384,9 +1386,10 @@ label, label + * {
   display: none;
 }
 
-.block a.product-picture img {
-  max-width: 100%;
-}
+  .block a.product-picture img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
 
 .block a.product-picture:before {
   display: none;
@@ -1486,14 +1489,15 @@ label, label + * {
 .poll-total-votes {
 }
 
-.poll .buttons button {
-  border: none;
-  background-color: #aaa;
-  padding: 10px 20px;
-  font-size: 13px;
-  color: #fff;
-  text-transform: uppercase;
-}
+  .poll .buttons button {
+    border: none;
+    background-color: #aaa;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 20px;
+  }
 
 .poll .buttons button:hover,
 .poll .buttons button:focus {
@@ -1577,7 +1581,7 @@ label, label + * {
 
 .contact-vendor .button-2 {
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 15px;
   font-size: 14px;
   color: #fff;
@@ -1586,7 +1590,7 @@ label, label + * {
 
 .contact-vendor .button-2:hover,
 .contact-vendor .button-2:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .product-selectors {
@@ -1743,19 +1747,20 @@ label, label + * {
   padding-top: 100%;
 }
 
-.item-box .picture a img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  -webkit-transform: translateZ(0) scale(1.0, 1.0);
-}
+  .item-box .picture a img {
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  }
 
 .item-box:hover .picture a img {
   opacity: 0.85;
@@ -1866,16 +1871,17 @@ label, label + * {
 
 .item-box .product-box-add-to-cart-button {
   width: 60%;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   text-align: center;
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
 .item-box .product-box-add-to-cart-button:hover,
 .item-box .product-box-add-to-cart-button:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .item-box .add-to-compare-list-button,
@@ -1886,6 +1892,7 @@ label, label + * {
   background-position: center;
   background-repeat: no-repeat;
   font-size: 0;
+  border-radius: 10px;
 }
 
 .item-box .add-to-compare-list-button {
@@ -2026,7 +2033,7 @@ label, label + * {
 
 .pager li span {
   border-color: transparent;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   color: #fff;
 }
 
@@ -2301,6 +2308,7 @@ label, label + * {
   text-align: right;
   font-size: 14px; /*reset zeroing*/
   color: #666;
+  border-radius: 20px;
 }
 
 .overview .button-2:hover,
@@ -2519,6 +2527,7 @@ label, label + * {
   text-align: center;
   font-size: 15px;
   color: #444;
+  border-radius: 20px;
 }
 
 .overview .qty-dropdown,
@@ -2533,7 +2542,7 @@ label, label + * {
 .variant-overview .add-to-cart-button {
   height: 43px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 0 24px;
   font-size: 15px;
   color: #fff;
@@ -2544,7 +2553,7 @@ label, label + * {
 .overview .add-to-cart-button:focus,
 .variant-overview .add-to-cart-button:hover,
 .variant-overview .add-to-cart-button:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .product-share-button {
@@ -2774,7 +2783,7 @@ label, label + * {
 .ui-datepicker-header {
   position: relative;
   height: 32px;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   color: #fff;
   /*override jQuery UI styles, do not delete doubled properties*/
   border: none;
@@ -2902,7 +2911,7 @@ label, label + * {
 }
 
 .attribute-squares .selected-value .attribute-square-container {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
 }
 
 .attribute-squares li input {
@@ -3107,18 +3116,19 @@ label, label + * {
 
 .write-review .button-1 {
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 25px;
   text-align: center;
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
-.write-review .button-1:hover,
-.write-review .button-1:focus {
-  background-color: #248ece;
-}
+  .write-review .button-1:hover,
+  .write-review .button-1:focus {
+    background-color: #5f5f09;
+  }
 
 .product-reviews .result,
 .product-reviews .message-error {
@@ -3271,16 +3281,16 @@ label, label + * {
 
 .wishlist-content .update-wishlist-button,
 .wishlist-content .wishlist-add-to-cart-button {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   text-transform: uppercase;
 }
 
-.wishlist-content .update-wishlist-button:hover,
-.wishlist-content .update-wishlist-button:focus,
-.wishlist-content .wishlist-add-to-cart-button:hover,
-.wishlist-content .wishlist-add-to-cart-button:focus {
-  background-color: #248ece;
-}
+  .wishlist-content .update-wishlist-button:hover,
+  .wishlist-content .update-wishlist-button:focus,
+  .wishlist-content .wishlist-add-to-cart-button:hover,
+  .wishlist-content .wishlist-add-to-cart-button:focus {
+    background-color: #5f5f09;
+  }
 
 .wishlist-content .email-a-friend-wishlist-button {
   background-color: #aaa;
@@ -3319,20 +3329,21 @@ label, label + * {
   overflow: hidden;
 }
 
-.compare-products-page .clear-list {
-  display: inline-block;
-  margin: 0 0 20px;
-  background-color: #4ab2f1;
-  padding: 10px 15px;
-  font-size: 12px;
-  color: #fff;
-  text-transform: uppercase;
-}
+  .compare-products-page .clear-list {
+    display: inline-block;
+    margin: 0 0 20px;
+    background-color: #fb036d;
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 20px;
+  }
 
-.compare-products-page .clear-list:hover,
-.compare-products-page .clear-list:focus {
-  background-color: #248ece;
-}
+    .compare-products-page .clear-list:hover,
+    .compare-products-page .clear-list:focus {
+      background-color: #5f5f09;
+    }
 
 .compare-products-page .table-wrapper {
   margin: 0 0 30px;
@@ -3390,16 +3401,17 @@ label, label + * {
   overflow: hidden;
 }
 
-.compare-products-table .picture img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-}
+  .compare-products-table .picture img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    border-radius: 20px;
+  }
 
 .compare-products-table .product-name td {
   font-weight: bold;
@@ -3503,7 +3515,7 @@ label, label + * {
   min-width: 86px;
   height: 40px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 0 15px;
   color: #fff;
   text-transform: uppercase;
@@ -3511,7 +3523,7 @@ label, label + * {
 
 .enter-password-form button[type="submit"]:hover,
 .enter-password-form button[type="submit"]:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 
@@ -3539,22 +3551,23 @@ label, label + * {
 .apply-vendor-page .button-1 {
   min-width: 140px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
-.contact-page .button-1:hover,
-.contact-page .button-1:focus,
-.email-a-friend-page .button-1:hover,
-.email-a-friend-page .button-1:focus,
-.apply-vendor-page .button-1:hover,
-.apply-vendor-page .button-1:focus {
-  background-color: #248ece;
-}
+  .contact-page .button-1:hover,
+  .contact-page .button-1:focus,
+  .email-a-friend-page .button-1:hover,
+  .email-a-friend-page .button-1:focus,
+  .apply-vendor-page .button-1:hover,
+  .apply-vendor-page .button-1:focus {
+    background-color: #5f5f09;
+  }
 
 .contact-page .topic-block,
 .email-a-friend-page .title,
@@ -3663,12 +3676,13 @@ label, label + * {
 .return-request-page .button-1 {
   min-width: 140px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
 .registration-page .button-1:hover,
@@ -3683,7 +3697,7 @@ label, label + * {
 .account-page .button-1:focus,
 .return-request-page .button-1:hover,
 .return-request-page .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .return-request-page h1 a {
@@ -4234,16 +4248,17 @@ label, label + * {
   font-size: 0;
 }
 
-.shopping-cart-page .common-buttons button {
-  display: inline-block;
-  min-width: 180px;
-  margin: 5px;
-  border: none;
-  background-color: #aaa;
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #fff;
-}
+  .shopping-cart-page .common-buttons button {
+    display: inline-block;
+    min-width: 180px;
+    margin: 5px;
+    border: none;
+    background-color: #aaa;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 20px;
+  }
 
 .shopping-cart-page .common-buttons button:hover,
 .shopping-cart-page .common-buttons button:focus {
@@ -4251,12 +4266,12 @@ label, label + * {
 }
 
 .shopping-cart-page .common-buttons button:first-child {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
 }
 
 .shopping-cart-page .common-buttons button:first-child:hover,
 .shopping-cart-page .common-buttons button:first-child:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .checkout-attributes {
@@ -4409,17 +4424,18 @@ label, label + * {
   display: inline-block;
   min-width: 160px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 
-.cart-footer .checkout-button:hover,
-.cart-footer .checkout-button:focus {
-  background-color: #248ece;
-}
+  .cart-footer .checkout-button:hover,
+  .cart-footer .checkout-button:focus {
+    background-color: #5f5f09;
+  }
 
 .cart-footer .addon-buttons {
   margin: 20px 0 0;
@@ -4481,12 +4497,13 @@ label, label + * {
   margin: 0 0 0 -1px;
 }
 
-.cart-collaterals .coupon-code button[type="submit"] {
-  float: right;
-  width: 40%;
-  height: 36px; /*safari padding fix*/
-  padding: 0;
-}
+  .cart-collaterals .coupon-code button[type="submit"] {
+    float: right;
+    width: 40%;
+    height: 36px; /*safari padding fix*/
+    padding: 0;
+    border-radius: 20px;
+  }
 
 .cart-collaterals .message-failure {
   margin: 5px 0 0;
@@ -4674,7 +4691,7 @@ label, label + * {
 }
 
 .estimate-shipping-radio:checked + label {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   color: #99a1a7;
   border: 1px solid #adb8c0;
   border-color: #4ab2f1;
@@ -4683,7 +4700,7 @@ label, label + * {
 .apply-shipping-button {
   border: none;
   padding: 8px 25px;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   color: #fff;
 }
 
@@ -4758,6 +4775,7 @@ label, label + * {
   font-size: 15px;
   text-align: center;
   color: #fff;
+  border-radius: 20px;
 }
 
 .shopping-cart-page .common-buttons .estimate-shipping-button:hover,
@@ -4841,7 +4859,7 @@ label, label + * {
   display: inline-block;
   min-width: 140px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
@@ -4849,10 +4867,10 @@ label, label + * {
   text-transform: uppercase;
 }
 
-.checkout-page .button-1:hover,
-.checkout-page .button-1:focus {
-  background-color: #248ece;
-}
+  .checkout-page .button-1:hover,
+  .checkout-page .button-1:focus {
+    background-color: #5f5f09;
+  }
 
 .checkout-page .address-item {
   width: 350px;
@@ -5102,7 +5120,7 @@ label, label + * {
 }
 
 .opc .allow .step-title {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   cursor: pointer;
 }
 
@@ -5129,7 +5147,7 @@ label, label + * {
 }
 
 .opc .allow .step-title .number {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .opc .step {
@@ -5245,12 +5263,12 @@ label, label + * {
 }
 
 .order-details-page .page-title a.print-order-button {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
 }
 
 .order-details-page .page-title a.print-order-button:hover,
 .order-details-page .page-title a.print-order-button:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .order-details-page .order-overview {
@@ -5275,7 +5293,7 @@ label, label + * {
   display: inline-block;
   margin: 10px 0;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 15px;
   font-size: 12px;
   color: #fff;
@@ -5284,7 +5302,7 @@ label, label + * {
 
 .order-details-page .repost .button-2:hover,
 .order-details-page .repost .button-2:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .order-details-page .download a {
@@ -5306,7 +5324,7 @@ label, label + * {
 .user-agreement-page .button-1 {
   min-width: 140px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
@@ -5316,7 +5334,7 @@ label, label + * {
 
 .user-agreement-page .button-1:hover,
 .user-agreement-page .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .order-details-page .tax-shipping-info {
@@ -5355,12 +5373,12 @@ label, label + * {
 }
 
 .order-details-page .actions button:first-child {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
 }
 
 .order-details-page .actions button:first-child:hover,
 .order-details-page .actions button:first-child:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .order-details-page .totals.section {
@@ -5418,7 +5436,7 @@ label, label + * {
 .search-input .button-1 {
   min-width: 140px;
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
@@ -5428,7 +5446,7 @@ label, label + * {
 
 .search-input .button-1:hover,
 .search-input .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .search-results {
@@ -5637,23 +5655,24 @@ label, label + * {
   color: #4ab2f1;
 }
 
-.blog-posts .buttons .read-more,
-.news-items .buttons .read-more {
-  display: inline-block;
-  border: none;
-  background-color: #4ab2f1;
-  padding: 10px 20px;
-  font-size: 12px;
-  color: #fff;
-  text-transform: uppercase;
-}
+  .blog-posts .buttons .read-more,
+  .news-items .buttons .read-more {
+    display: inline-block;
+    border: none;
+    background-color: #fb036d;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 20px;
+  }
 
-.blog-posts .buttons .read-more:hover,
-.blog-posts .buttons .read-more:focus,
-.news-items .buttons .read-more:hover,
-.news-items .buttons .read-more:focus {
-  background-color: #248ece;
-}
+    .blog-posts .buttons .read-more:hover,
+    .blog-posts .buttons .read-more:focus,
+    .news-items .buttons .read-more:hover,
+    .news-items .buttons .read-more:focus {
+      background-color: #5f5f09;
+    }
 
 .new-comment {
   margin: 50px 0 60px;
@@ -5673,7 +5692,7 @@ label, label + * {
 
 .new-comment .button-1 {
   border: none;
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 30px;
   text-align: center;
   font-size: 15px;
@@ -5683,7 +5702,7 @@ label, label + * {
 
 .new-comment .button-1:hover,
 .new-comment .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .comment-list {
@@ -5965,7 +5984,7 @@ label, label + * {
 }
 
 .forums-table-section .view-all a {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
   padding: 10px 15px;
   font-size: 12px;
   color: #fff;
@@ -5974,7 +5993,7 @@ label, label + * {
 
 .forums-table-section .view-all a:hover,
 .forums-table-section .view-all a:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 /* forum-page, topic page */
@@ -6401,7 +6420,7 @@ label, label + * {
 .forum-edit-page .buttons .button-1,
 .move-topic-page .buttons .button-1,
 .private-messages .buttons .button-1 {
-  background-color: #4ab2f1;
+  background-color: #fb036d;
 }
 
 .forum-edit-page .buttons .button-1:hover,
@@ -6410,7 +6429,7 @@ label, label + * {
 .move-topic-page .buttons .button-1:focus,
 .private-messages .buttons .button-1:hover,
 .private-messages .buttons .button-1:focus {
-  background-color: #248ece;
+  background-color: #fb036d;
 }
 
 .private-message-send-page a {
@@ -6842,17 +6861,19 @@ label, label + * {
     z-index: 1;
     width: 90%;
     max-width: 600px;
+    border-radius: 5px;
     margin: 0 auto 40px;
   }
 
   .menu-toggle {
-    background: #4ab2f1 url('../images/menu-icon.png') left center no-repeat;
+    background: #5f5f09 url('../images/menu-icon.png') left center no-repeat;
     padding: 15px;
     font-size: 15px;
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   .top-menu {
@@ -8123,7 +8144,7 @@ label, label + * {
   .mini-shopping-cart button[type="button"] {
     display: inline-block;
     border: none;
-    background-color: #4ab2f1;
+    background-color: #fb036d;
     padding: 10px 20px;
     font-size: 12px;
     color: #fff;
@@ -8132,7 +8153,7 @@ label, label + * {
 
   .mini-shopping-cart button[type="button"]:hover,
   .mini-shopping-cart button[type="button"]:focus {
-    background-color: #248ece;
+    background-color: #fb036d;
   }
 
   .header-lower {
