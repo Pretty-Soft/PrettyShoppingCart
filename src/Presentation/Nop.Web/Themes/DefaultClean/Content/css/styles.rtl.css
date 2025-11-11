@@ -171,7 +171,7 @@ label, label + * {
   }
 
 .center-1 {
-  margin: 0 0 100px;
+  margin: 0 0 10px;
 }
 
 .center-2, .side-2 {
@@ -870,7 +870,7 @@ label, label + * {
 
 
 .admin-header-links {
-  background-color: #333;
+  background-color: #fb036d;
   text-align: center;
   color: #eee;
 }
@@ -894,7 +894,7 @@ label, label + * {
 
       .admin-header-links .impersonate a:hover,
       .admin-header-links .impersonate a:focus {
-        background-color: #666;
+        background-color: #5f5f09;
       }
 
 .header {
@@ -1003,7 +1003,7 @@ label, label + * {
 .header-lower {
   position: relative;
   z-index: 0;
-  padding: 35px 0;
+  padding: 10px 0;
 }
 
 .header-logo {
@@ -1544,7 +1544,7 @@ label, label + * {
 
 
 .breadcrumb {
-  margin: 0 0 50px;
+  margin: 0 0 5px;
   background-color: #f6f6f6;
   padding: 5px 10px;
   border-radius: 10px;
@@ -1965,13 +1965,13 @@ label, label + * {
 
 .product-grid,
 .product-list {
-  margin: 0 0 50px;
+  margin: 20px 0 50px;
 }
 
   .product-grid .title {
     margin: 0 0 30px;
-    border-bottom: 1px solid #ddd;
-    padding: 0 0 15px;
+    border-bottom: 1px solid #fb036d;
+    padding: 10px 0 15px;
     font-size: 30px;
     font-weight: normal;
     color: #444;
@@ -8011,9 +8011,9 @@ label, label + * {
     }
 
     .header-selectors-wrapper select {
-      height: 25px;
-      padding: 4px;
-      font-size: 12px;
+      height: 25px !important;
+      padding: 4px !important;
+      font-size: 12px !important;
     }
 
   .language-list {
@@ -8201,7 +8201,7 @@ label, label + * {
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
-    padding: 15px 0;
+    padding: 5px 0;
     text-align: center;
   }
 
