@@ -8132,10 +8132,10 @@ label, label + * {
     z-index: 5;
     width: 980px;
     margin: 0 auto 30px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
     padding: 5px 0;
     text-align: center;
     border-radius: 5px;
@@ -8157,7 +8157,7 @@ label, label + * {
 
     .header-menu > ul > li {
       display: inline-block;
-      border-left: 1px solid #ddd;
+      border-left: 1px solid #fff;
       padding: 0 15px;
       vertical-align: middle;
     }
@@ -9030,3 +9030,5 @@ select:focus {
   border-color: #4f46e5 !important;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
 }
+
+
