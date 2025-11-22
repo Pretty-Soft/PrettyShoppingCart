@@ -32,3 +32,33 @@
 </div>
 @await Component.InvokeAsync(typeof(EuCookieLawViewComponent))
 @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.BodyEndHtmlTagBefore })
+
+<!-- Scroll to Top Button -->
+<!-- Add before the closing body tag -->
+<div class="scroll-to-top">
+    <i class="fa fa-chevron-up">Top</i>
+</div>
+
+<script asp-location="Footer">
+    // Scroll to top functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollButton = document.querySelector('.scroll-to-top');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('show');
+            } else {
+                scrollButton.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when clicked
+        scrollButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
