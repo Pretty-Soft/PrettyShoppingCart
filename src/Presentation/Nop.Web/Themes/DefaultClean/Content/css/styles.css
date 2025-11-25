@@ -907,6 +907,7 @@ label, label + * {
   position: relative;
   z-index: 1;
   border-bottom: 1px solid #fff;
+  padding: 5px;
 }
 
 .header-selectors-wrapper {
@@ -955,7 +956,7 @@ label, label + * {
 
 .header-links-wrapper {
   position: relative;
-  padding: 20px 0;
+  padding: 5px 0;
 }
 
 .header-links {
@@ -984,12 +985,11 @@ label, label + * {
     }
 
 #topcartlink {
-  display: block;
-  width: 70%;
+  display: inline-block;
   max-width: 400px;
   margin: 10px auto 0;
-  background-color: #FF3D71;
-  padding: 0 20px;
+  background-color: #cbbf3c;
+  padding: 0 10px;
   border-radius: 10px;
   font-weight: 700;
 }
@@ -1003,7 +1003,7 @@ label, label + * {
 .header-lower {
   position: relative;
   z-index: 0;
-  padding: 1px 0;
+  padding: 5px 0;
 }
 
 .header-logo {
@@ -1029,8 +1029,8 @@ label, label + * {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 10px 0;
-  margin-top:11px;
+  gap: 10px 5px;
+  margin-bottom:5px;
 }
 
 .search-box input.search-box-text {
@@ -4240,7 +4240,7 @@ label, label + * {
     min-width: 180px;
     margin: 5px;
     border: none;
-    background-color: #aaa;
+    background-color: #fb036d;
     padding: 10px 20px;
     font-size: 15px;
     color: #fff;
@@ -4439,7 +4439,7 @@ label, label + * {
   .cart-collaterals .button-2 {
     display: inline-block;
     border: none;
-    background-color: #aaa;
+    background-color: #fb036d;
     padding: 10px 15px;
     color: #fff;
     text-transform: uppercase;
@@ -4750,7 +4750,7 @@ label, label + * {
   min-width: 180px;
   margin: 5px;
   border: none;
-  background-color: #aaa;
+  background-color: #cbbf3c;
   padding: 10px 20px;
   font-size: 15px;
   text-align: center;
@@ -8141,6 +8141,7 @@ label, label + * {
     padding: 5px 0;
     text-align: center;
     border-radius: 5px;
+    background-color: #cbbf3c;
   }
 
   .menu-toggle,
@@ -8173,13 +8174,13 @@ label, label + * {
         padding: 5px 10px;
         line-height: 20px;
         font-size: 17px; /*reset zeroing*/
-        color: #555;
+        color: #fff;
         cursor: pointer;
       }
 
         .header-menu > ul > li > a:hover,
         .header-menu > ul > li > a:focus {
-          color: #4ab2f1;
+          color: #fb036d;
         }
 
   .header-menu .sublist {
@@ -8289,7 +8290,7 @@ label, label + * {
   .footer-lower {
     position: relative;
     width: 980px;
-    padding: 25px 5px;
+    padding: 5px 5px;
   }
 
     .footer-lower:after {
@@ -9061,9 +9062,9 @@ select:focus {
 /*Scrool top menue css*/
 .scroll-to-top {
   position: fixed;
-  bottom: 60px;
+  bottom: 15px;
   left: 0;
-  transform: translateX(0%) translateY(25px);
+  transform: translateX(30%) translateY(-1px) !important;
   width: 50px;
   height: 50px;
   background: #fb036d;
