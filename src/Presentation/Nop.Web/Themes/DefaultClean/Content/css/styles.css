@@ -7969,7 +7969,7 @@ label, label + * {
 
   .header-links a,
   .header-links span {
-    line-height: 45px;
+   /* line-height: 45px;*/
     text-transform: none;
   }
 
