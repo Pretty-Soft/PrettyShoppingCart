@@ -3,9 +3,7 @@
 }
 @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.BodyStartHtmlTagAfter })
 @{ await Html.RenderPartialAsync("_Notifications"); }
-@{
-    await Html.RenderPartialAsync("_SplashScreen");
-}
+@{await Html.RenderPartialAsync("_SplashScreen");}
 @{ await Html.RenderPartialAsync("_JavaScriptDisabledWarning"); }
 <div class="master-wrapper-page">
     @await Component.InvokeAsync(typeof(AdminHeaderLinksViewComponent))
@@ -38,11 +36,7 @@
 
 
 <!-- _SplashScreen -->
-@* @if (Model != null && Model.IsHomePage && !Context.Request.Cookies.ContainsKey("splashClosed"))
-{
-    @await Html.PartialAsync("_SplashScreen")
-}
- *@
+
 <!-- Scroll to Top Button -->
 <!-- Add before the closing body tag -->
 <div class="scroll-to-top">
