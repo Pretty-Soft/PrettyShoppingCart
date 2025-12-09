@@ -1,0 +1,321 @@
+﻿@using Newtonsoft.Json
+@using Nop.Core
+@using Nop.Core.Domain
+@inject IWebHelper webHelper
+@inject IWorkContext workContext
+@{
+    // Check if it's homepage
+    var isHomePage = webHelper.GetThisPageUrl(false) == webHelper.GetStoreLocation();
+
+    // Check if splash should be shown
+    var splashShownCookie = Context.Request.Cookies["PrettyMartSplashShown"];
+    var shouldShowSplash = isHomePage && string.IsNullOrEmpty(splashShownCookie);
+}
+<link href="~/css/splash/splash.css" rel="stylesheet" />
+@if (shouldShowSplash)
+{
+    <div>
+
+        <!-- Splash Screen Container -->
+        <div class="splash-container" id="splashScreen">
+            <!-- Close Button -->
+            <div class="close-button" onclick="closeSplashScreen()" title="Close Splash Screen">
+                ✕
+            </div>
+
+            <!-- Celebration Effects -->
+            <div class="celebration-bg" id="celebrationBg"></div>
+
+            <!-- Scrollable Content -->
+            <div class="splash-content">
+                <!-- Grand Opening Banner -->
+                <div class="grand-opening-banner">
+                    <div class="grand-opening-text">🎊 Grand Opening 🎊</div>
+                </div>
+
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <div class="logo-circle">
+                        <div class="logo-icon">🛍️</div>
+                    </div>
+                    <h1 class="store-name">Pretty <span>Mart</span></h1>
+                    <p class="tagline">
+                        Empowering Bangladesh's New Generation •
+                        বাংলাদেশের নতুন প্রজন্মের শক্তি<br>
+                        Coming December 17, 2025 • আসছি ১৭ ডিসেম্বর ২০২৫ এ
+                    </p>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <div class="countdown-title">Launching In:</div>
+                    <div class="countdown-timer" id="countdownTimer">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Launch Date -->
+                <div class="launch-date">
+                    <span>December 17, 2025 • 12:00 PM</span>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <a href="mailto:prettymartbd@gmail.com">prettymartbd@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <a href="tel:+8801872441501">+880-1872-441-501</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <span>Dhaka, Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- "Don't Show Again" Option -->
+                <div class="dont-show-container">
+                    <input type="checkbox" id="dontShowAgain" class="dont-show-checkbox">
+                    <label for="dontShowAgain">Don't show this again for 12 hours</label>
+                </div>
+
+                <!-- Enter Store Button -->
+                <button class="enter-button" onclick="enterStore()">
+                    Enter Store <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent">
+            <div style="padding: 20px; text-align: center;">
+                <h1 style="font-size: clamp(24px, 6vw, 48px); color: #fb036d;">Welcome to Pretty Mart! 🎉</h1>
+                <p style="font-size: clamp(16px, 4vw, 24px); margin: 20px 0;">Your grand opening shopping experience begins...</p>
+                <button onclick="showSplashAgain()" style="padding: 12px 24px; background: #fb036d; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin: 10px;">
+                    Show Splash Screen
+                </button>
+                <button onclick="enterStore()" style="padding: 12px 24px; background: #fb036d; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin: 10px;">
+                    Visit Pretty Mart
+                </button>
+            </div>
+        </div>
+        <script>
+            // Responsive Functions
+            function adjustForScreenSize() {
+                const splash = document.getElementById('splashScreen');
+                const content = document.querySelector('.splash-content');
+
+                // Check if content fits on screen
+                const windowHeight = window.innerHeight;
+                const contentHeight = content.scrollHeight;
+
+                if (contentHeight > windowHeight * 0.9) {
+                    // Content too tall, enable scrolling
+                    splash.style.overflowY = 'auto';
+                    splash.style.justifyContent = 'flex-start';
+                    splash.style.paddingTop = '60px';
+                } else {
+                    // Content fits, center it
+                    splash.style.overflowY = 'hidden';
+                    splash.style.justifyContent = 'center';
+                    splash.style.paddingTop = '20px';
+                }
+            }
+
+            // Create celebration effects
+            function createCelebrationEffects() {
+                const bg = document.getElementById('celebrationBg');
+                bg.innerHTML = ''; // Clear existing
+
+                // Adjust particle count based on screen size
+                const isMobile = window.innerWidth <= 768;
+                const particleCount = isMobile ? 30 : 50;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animationDelay = Math.random() * 5 + 's';
+                    confetti.style.backgroundColor = getRandomColor();
+                    confetti.style.width = (Math.random() * 6 + 3) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    bg.appendChild(confetti);
+                }
+            }
+
+            function getRandomColor() {
+                const colors = ['#ffeb3b', '#4CAF50', '#2196F3', '#FF4081', '#00BCD4'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            // Set launch date
+            const launchDate = new Date('December 17, 2025 12:00:00').getTime();
+
+            // Update countdown timer
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeLeft = launchDate - now;
+
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                } else {
+                    document.getElementById('countdownTimer').innerHTML = `
+                        <div style="font-size: clamp(20px, 5vw, 32px); color: #ffeb3b; font-weight: 900; text-align: center; grid-column: span 2;">
+                            🎉 NOW LIVE! 🎉
+                        </div>
+                    `;
+                    document.querySelector('.launch-date').innerHTML = `
+                        <span style="color: #4CAF50;">
+                            🚀 WE ARE LIVE! COME SHOP NOW! 🚀
+                        </span>
+                    `;
+                }
+            }
+
+            // Close splash screen
+                function closeSplashScreen() {
+                const splash = document.getElementById('splashScreen');
+                const checkbox = document.getElementById('dontShowAgain');
+
+                // Set cookie for server-side check (if needed)
+                if (checkbox.checked) {
+                    const expiryDate = new Date(Date.now() + (12 * 60 * 60 * 1000)); // 12 hours from now
+                    document.cookie = "splashClosed=true; expires=" + expiryDate.toUTCString() + "; path=/";
+
+                    // Also keep localStorage for client-side if needed
+                    localStorage.setItem('prettyMartSplashHide', expiryDate.getTime().toString());
+                } else {
+                    // Set session cookie if checkbox not checked (expires when browser closes)
+                    document.cookie = "splashClosed=true;";
+                    window.location.href = "https://www.prettymart.com.bd/";
+                }
+
+                // Add fade-out effect
+                splash.style.transition = 'opacity 0.3s ease';
+                splash.style.opacity = '0';
+
+                // Wait for animation to complete, then redirect
+                setTimeout(() => {
+                    splash.classList.add('hidden');
+
+                    // Redirect to main site
+                    // Option 1: Redirect to homepage (if you're on a splash page)
+                    window.location.href = "https://www.prettymart.com.bd/";
+
+                    // Option 2: Or just hide the splash and stay on current page
+                    // (Remove the redirect line if you want to stay on current page)
+                }, 300);
+            }
+            // Enter store
+            function enterStore() {
+                closeSplashScreen();
+                location.href="https://www.prettymart.com.bd/";
+            }
+
+            // Show splash again
+            function showSplashAgain() {
+                const splash = document.getElementById('splashScreen');
+                splash.classList.remove('hidden');
+                splash.style.opacity = '1';
+                localStorage.removeItem('prettyMartSplashHide');
+            }
+
+            // Check if should show splash
+            function shouldShowSplash() {
+                const hideUntil = localStorage.getItem('prettyMartSplashHide');
+                if (hideUntil) {
+                    const currentTime = Date.now();
+                    if (currentTime < parseInt(hideUntil)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            // Initialize
+            window.addEventListener('DOMContentLoaded', () => {
+                if (!shouldShowSplash()) {
+                    document.getElementById('splashScreen').classList.add('hidden');
+                    return;
+                }
+
+                createCelebrationEffects();
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+                adjustForScreenSize();
+
+                // Adjust on resize
+                window.addEventListener('resize', () => {
+                    createCelebrationEffects();
+                    adjustForScreenSize();
+                });
+
+                // Adjust on orientation change
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        createCelebrationEffects();
+                        adjustForScreenSize();
+                    }, 300);
+                });
+
+                // Auto-close after 20 seconds on mobile
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        if (shouldShowSplash()) {
+                            closeSplashScreen();
+                        }
+                    }, 20000);
+                }
+            });
+
+            // Prevent zoom on mobile
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            // Handle viewport height on mobile
+            function setViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            setViewportHeight();
+            window.addEventListener('resize', setViewportHeight);
+            window.addEventListener('orientationchange', setViewportHeight);
+        </script>
+    </div>
+}
+@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.SplashHome })

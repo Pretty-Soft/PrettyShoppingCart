@@ -1,0 +1,567 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Responsive Container */
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fb036d 0%, #e91e63 50%, #ad1457 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+  .splash-container.hidden {
+    display: none;
+  }
+
+/* Scrollable Content Area */
+.splash-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* Close Button - Always Visible */
+.close-button {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+  .close-button:hover {
+    background: rgba(255, 0, 0, 0.6);
+    transform: scale(1.1);
+  }
+
+/* Celebration Effects - Lighter for Mobile */
+.celebration-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffeb3b;
+  animation: confettiFall 8s linear infinite;
+}
+
+/* Grand Opening Banner */
+.grand-opening-banner {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 2px solid #ffeb3b;
+  box-shadow: 0 0 20px rgba(255, 235, 59, 0.5);
+  animation: bannerGlow 2s ease-in-out infinite alternate;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  z-index: 2;
+}
+
+.grand-opening-text {
+  font-size: clamp(20px, 5vw, 36px);
+  font-weight: 900;
+  color: #ffeb3b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+}
+
+/* Logo Section - Responsive */
+.logo-section {
+  text-align: center;
+  margin: 10px 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.logo-circle {
+  width: clamp(100px, 30vw, 180px);
+  height: clamp(100px, 30vw, 180px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  border: 4px solid #ffeb3b;
+  box-shadow: 0 0 30px rgba(255, 235, 59, 0.6);
+}
+
+.logo-icon {
+  font-size: clamp(40px, 15vw, 80px);
+}
+
+.store-name {
+  font-size: clamp(28px, 8vw, 56px);
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+  .store-name span {
+    color: #ffeb3b;
+    display: inline-block;
+  }
+
+.tagline {
+  font-size: clamp(14px, 3.5vw, 18px);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Countdown Timer - Responsive Grid */
+.countdown-container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.countdown-title {
+  font-size: clamp(16px, 4vw, 24px);
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: clamp(24px, 7vw, 48px);
+  font-weight: 800;
+  color: #ffeb3b;
+  background: rgba(0, 0, 0, 0.6);
+  padding: clamp(8px, 2vw, 15px);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-label {
+  font-size: clamp(11px, 2.5vw, 14px);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Launch Date */
+.launch-date {
+  font-size: clamp(16px, 4vw, 24px);
+  color: #ffccd5;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: 600;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 10px;
+}
+
+  .launch-date span {
+    color: #ffeb3b;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+/* Contact Info - Responsive Grid */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 800px;
+  z-index: 2;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: white;
+  font-size: clamp(14px, 3vw, 16px);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+  .contact-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+.contact-icon {
+  font-size: clamp(18px, 4vw, 24px);
+  flex-shrink: 0;
+}
+
+.contact-text {
+  flex: 1;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+  .contact-text a {
+    color: #ffccd5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+    .contact-text a:hover {
+      color: #ffeb3b;
+      text-decoration: underline;
+    }
+
+/* "Don't Show Again" Option */
+.dont-show-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(13px, 3vw, 15px);
+  margin: 15px 0;
+  padding: 0 10px;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  flex-wrap: wrap;
+}
+
+.dont-show-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Entry Button - Always Accessible */
+.enter-button {
+  padding: clamp(14px, 3vw, 20px) clamp(30px, 6vw, 60px);
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffeb3b, #ffcc00);
+  color: #ad1457;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(255, 235, 59, 0.4);
+  transition: all 0.3s ease;
+  margin: 20px 0;
+  z-index: 2;
+  min-width: 200px;
+  max-width: 400px;
+  width: 80%;
+}
+
+  .enter-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 235, 59, 0.6);
+  }
+
+/* Animations */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bannerGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 235, 59, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 40px rgba(255, 235, 59, 0.8);
+  }
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 768px) {
+  .splash-container {
+    padding: 15px;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+
+  .splash-content {
+    gap: 12px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .countdown-number {
+    min-height: 50px;
+    font-size: 28px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .contact-item {
+    min-height: 50px;
+    padding: 12px;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-container {
+    padding: 10px;
+    padding-top: 50px;
+  }
+
+  .splash-content {
+    gap: 10px;
+  }
+
+  .grand-opening-banner {
+    padding: 12px 20px;
+    margin-bottom: 8px;
+  }
+
+  .grand-opening-text {
+    font-size: 18px;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+    border-width: 3px;
+  }
+
+  .logo-icon {
+    font-size: 40px;
+  }
+
+  .store-name {
+    font-size: 24px;
+  }
+
+  .tagline {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .countdown-container {
+    padding: 15px;
+  }
+
+  .countdown-timer {
+    gap: 8px;
+  }
+
+  .countdown-number {
+    font-size: 22px;
+    min-height: 45px;
+    padding: 8px;
+  }
+
+  .countdown-label {
+    font-size: 10px;
+  }
+
+  .launch-date {
+    font-size: 14px;
+  }
+
+  .enter-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    min-width: 180px;
+  }
+
+  .dont-show-container {
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 700px) and (orientation: landscape) {
+  .splash-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow-y: auto;
+  }
+
+  .splash-content {
+    gap: 10px;
+  }
+
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .logo-icon {
+    font-size: 30px;
+  }
+
+  .store-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .tagline {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .countdown-container {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .countdown-number {
+    min-height: 40px;
+    font-size: 20px;
+  }
+
+  .enter-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* For very small screens (iPhone SE etc.) */
+@media (max-width: 320px) {
+  .grand-opening-text {
+    font-size: 16px;
+  }
+
+  .store-name {
+    font-size: 20px;
+  }
+
+  .countdown-number {
+    font-size: 18px;
+    min-height: 40px;
+  }
+
+  .contact-item {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .enter-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    min-width: 160px;
+  }
+}
+
+/* Prevent text selection on mobile */
+.splash-container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for interactive elements */
+.contact-text, .dont-show-container label {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+
