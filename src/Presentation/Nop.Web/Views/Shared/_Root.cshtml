@@ -3,7 +3,6 @@
 }
 @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.BodyStartHtmlTagAfter })
 @{ await Html.RenderPartialAsync("_Notifications"); }
-@{await Html.RenderPartialAsync("_SplashScreen");}
 @{ await Html.RenderPartialAsync("_JavaScriptDisabledWarning"); }
 <div class="master-wrapper-page">
     @await Component.InvokeAsync(typeof(AdminHeaderLinksViewComponent))
