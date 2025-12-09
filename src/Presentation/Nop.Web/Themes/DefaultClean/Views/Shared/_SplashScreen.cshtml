@@ -11,7 +11,7 @@
     var splashShownCookie = Context.Request.Cookies["PrettyMartSplashShown"];
     var shouldShowSplash = isHomePage && string.IsNullOrEmpty(splashShownCookie);
 }
-<link href="~/css/splash/splash.css" rel="stylesheet" />
+<link href="/css/splash/splash.css" rel="stylesheet" />
 @if (shouldShowSplash)
 {
     <div>
