@@ -6833,7 +6833,7 @@ label, label + * {
   .header-menu {
     position: relative;
     z-index: 1;
-    width: 100%;
+    width: 90%;
     max-width: 600px;
     margin: 0 auto 10px;
     border-radius: 5px;
@@ -6954,7 +6954,7 @@ label, label + * {
 
   .master-wrapper-content,
   .header-menu {
-    width: 92.5%;
+    width: 78.5%;
   }
 
 
@@ -7138,7 +7138,7 @@ label, label + * {
 
 
   .master-wrapper-content {
-    width: 94%;
+    width: 73.5%;
   }
 
   .home-page-polls li {
