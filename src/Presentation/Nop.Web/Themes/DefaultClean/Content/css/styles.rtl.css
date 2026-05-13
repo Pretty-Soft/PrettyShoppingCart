@@ -1,4 +1,4 @@
-
+﻿
 
 /*********** CSS RESET **********/
 
@@ -915,6 +915,7 @@ label, label + * {
 .header-selectors-wrapper {
   border-bottom: 1px solid #ddd;
   padding: 1px 0;
+  display: flex;
 }
 
   .header-selectors-wrapper > div {
@@ -1728,18 +1729,34 @@ label, label + * {
   clear: both;
 }
 
+/* ===== YOUR ORIGINAL .item-box (enhanced with modern card style + HOVER MOVEMENT) ===== */
 .item-box {
   position: relative;
   width: 100%;
-  float: right;
-  margin: 0 0 80px;
-  text-align: right;
+  float: left; /* kept as is */
+  margin: 0 0 40px; /* reduced bottom margin for compactness */
+  text-align: left;
+  /* MODERN CARD ADDITIONS */
+  background: #e77aafb0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease;
 }
 
+  /*  HOVER MOVEMENT EFFECT (like before: smooth lift) */
+  .item-box:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.2), 0 8px 12px -6px rgba(0, 0, 0, 0.08);
+  }
+
+  /* preserve your original picture styles + improve image fit */
   .item-box .picture {
     z-index: 1;
     background-color: #fff;
-    margin: 0 0 20px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
   }
 
     .item-box .picture a {
@@ -1747,178 +1764,180 @@ label, label + * {
       position: relative;
     }
 
-      .item-box .picture a:focus {
-        opacity: 0.85;
-      }
-
       .item-box .picture a:before {
         content: "";
         display: block;
-        padding-top: 100%;
+        padding-top: 100%; /* keeps square aspect */
       }
 
       .item-box .picture a img {
-        /*border-radius: 20px;*/
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        max-width: 100%;
-        max-height: 100%;
-        margin: auto;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        -webkit-transform: translateZ(0) scale(1.0, 1.0);
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* better than max-width/max-height */
+        transition: transform 0.4s ease, opacity 0.3s;
       }
-
+  /* image zoom on hover (extra polish) */
   .item-box:hover .picture a img {
-    opacity: 0.85;
+    transform: scale(1.04);
+    opacity: 0.92;
   }
 
+  /* details padding */
   .item-box .details {
-    padding: 0 10px;
+    padding: 0.4rem 0.4rem 0.4rem;
   }
 
+  /* product title */
   .item-box .product-title {
-    margin: 0 0 10px;
-    font-size: 17px;
-    line-height: 1.2;
-    font-weight: normal;
-    color: #4ab2f1;
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
     .item-box .product-title a {
-      display: block;
+      color: #1e2a3e;
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
       .item-box .product-title a:hover {
-        color: #248ece;
+        color: #fb036d;
       }
 
-  .item-box .sku {
-    margin: 0 0 15px;
-  }
-
+  /* rating box (clean inline) */
   .item-box .product-rating-box {
     display: inline-block;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
   }
 
   .item-box .rating {
-    background: url('../images/rating1.png') repeat-x;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e2e8f0"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') repeat-x;
+    background-size: 19px;
     width: 95px;
-    height: 14px;
-    -ms-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+    height: 18px;
   }
 
     .item-box .rating div {
-      background: url('../images/rating2.png') repeat-x;
-      height: 14px;
-      margin-right: auto;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f5b042"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') repeat-x;
+      background-size: 19px;
+      height: 18px;
     }
 
-.product-grid .item-box .description:not([data-short-description]) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  margin: 0 0 15px;
-  height: 66px;
-  line-height: 22px;
+  /* description - short & clean */
+  .item-box .description {
+    font-size: 0.85rem;
+    color: #4a5568;
+    line-height: 1.45;
+    margin: 0 0 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+/* offer content + new label */
+.offer-content {
+  margin-bottom: 6px;
 }
 
-.item-box .description[data-short-description] {
-  display: none;
+.new-product-label {
+  display: inline-block;
+  background: #fb036d;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.item-box .description a {
-  display: block;
-  overflow: hidden;
-}
-
+/* prices */
 .item-box .prices {
-  margin: 0 0 10px;
-  overflow: hidden;
-}
-
-.item-box .old-price {
-  margin: 0 0 0 5px;
-  font-size: 16px;
-  color: #aaa;
-  text-decoration: line-through;
+  margin: 0 0 12px;
 }
 
 .item-box .actual-price {
-  margin: 0 0 0 5px;
-  font-size: 16px;
-  color: #666;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e2a3e;
+  background: #f1f5f9;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+  display: inline-block;
 }
 
-.item-box .tax-shipping-info a {
-  color: #4ab2f1;
-}
-
-  .item-box .tax-shipping-info a:hover,
-  .item-box .tax-shipping-info a:focus {
-    text-decoration: underline;
-  }
-
+/* buttons group - compact & modern */
 .item-box .buttons {
-  margin: 0;
-  font-size: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
 }
 
 .item-box button {
-  display: inline-block;
-  height: 40px;
+  height: 38px;
   border: none;
-  vertical-align: middle;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.75rem;
+  padding: 0 0.1rem;
 }
 
 .item-box .product-box-add-to-cart-button {
-  width: 60%;
-  background-color: #fb036d;
-  text-align: center;
-  font-size: 15px;
-  color: #fff;
+  flex: 2;
+  background: #fb036d;
+  color: white;
   text-transform: uppercase;
-  border-radius: 20px;
 }
 
-  .item-box .product-box-add-to-cart-button:hover,
-  .item-box .product-box-add-to-cart-button:focus {
-    background-color: #fb036d;
+  .item-box .product-box-add-to-cart-button:hover {
+    background: #c70556;
+    transform: translateY(-2px);
   }
 
 .item-box .add-to-compare-list-button,
 .item-box .add-to-wishlist-button {
-  width: 20%;
-  border-right: 1px solid #fff !important;
-  background-color: #eaeaea;
-  background-position: center;
-  background-repeat: no-repeat;
+  flex: 1;
+  background: #eef2f6;
   font-size: 0;
-  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
 }
 
 .item-box .add-to-compare-list-button {
-  background-image: url('../images/compare-button.png');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%234b5563"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>');
 }
 
 .item-box .add-to-wishlist-button {
-  background-image: url('../images/wishlist-button.png');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="%234b5563"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>');
 }
 
   .item-box .add-to-compare-list-button:hover,
-  .item-box .add-to-compare-list-button:focus,
-  .item-box .add-to-wishlist-button:hover,
-  .item-box .add-to-wishlist-button:focus {
-    background-color: #ddd;
+  .item-box .add-to-wishlist-button:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
   }
+
+/* remove extra float issues */
+.item-box::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .home-page-category-grid,
 .sub-category-grid,
@@ -7068,7 +7087,7 @@ label, label + * {
 
   .item-box {
     width: 49%;
-    margin: 0 0.5% 50px;
+    margin: 0 0.5% 20px;
   }
 
     .item-box:nth-child(2n+1) {
@@ -7327,7 +7346,7 @@ label, label + * {
 
   .item-box {
     width: 32.33333%;
-    margin: 0 0.5% 50px;
+    margin: 0 0.5% 20px;
   }
 
     .item-box:nth-child(2n+1) {
