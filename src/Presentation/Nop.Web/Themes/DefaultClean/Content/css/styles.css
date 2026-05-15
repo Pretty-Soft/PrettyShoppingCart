@@ -7858,7 +7858,7 @@ label, label + * {
 
 
   .master-wrapper-content {
-    width: 980px;
+    width: 90%;
     margin: auto;
   }
 
@@ -7948,7 +7948,7 @@ label, label + * {
 
 
   .header {
-    width: 980px;
+    width: 90%;
     margin: auto;
   }
 
@@ -8155,7 +8155,7 @@ label, label + * {
   .header-menu {
     position: relative;
     z-index: 5;
-    width: 980px;
+    width: 90%;
     margin: 0 auto 10px;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
@@ -8259,7 +8259,7 @@ label, label + * {
 
 
   .footer-upper {
-    width: 980px;
+    width: 90%;
     padding: 35px 10px;
   }
 
