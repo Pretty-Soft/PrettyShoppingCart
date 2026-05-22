@@ -35,22 +35,22 @@
 
     <!-- FLOATING FILTER BUTTON -->
     <div class="mobile-filter-toggle">
-        <button type="button" class="filter-toggle-btn">
+        <button type="button" class="filter-toggle-btn" aria-controls="left-side-filter" aria-expanded="false">
             <span class="filter-icon">☰</span>
             <span>Filter</span>
         </button>
     </div>
 
     <!-- SIDEBAR -->
-    <div class="side-2 closed">
+    <div class="side-2 closed" id="left-side-filter">
 
         <!-- FILTER HEADER -->
         <div class="filter-header">
             <div></div>
             <!-- desktop + mobile close -->
-            <div class="filter-close">
+            <button type="button" class="filter-close" aria-label="Close filter">
                 <i class="fa fa-times">x</i>
-            </div>
+            </button>
         </div>
 
        
@@ -128,113 +128,86 @@
 </div>
 
 <script>
-
     document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.querySelector(".side-2");
+        const toggleBtn = document.querySelector(".filter-toggle-btn");
+        const closeBtn = document.querySelector(".filter-close");
+        const filterWrapper = document.querySelector(".mobile-filter-toggle");
+        const categorySection = document.querySelector(".category-page-layout");
 
-    const sidebar = document.querySelector(".side-2");
-    const toggleBtn = document.querySelector(".filter-toggle-btn");
-    const closeBtn = document.querySelector(".filter-close");
-    const filterWrapper = document.querySelector(".mobile-filter-toggle");
-    const categorySection = document.querySelector(".category-page-layout");
+        if (!sidebar || !toggleBtn || !closeBtn || !filterWrapper || !categorySection) {
+            return;
+        }
 
-    /* =========================================
-    DESKTOP DEFAULT HIDE
-    ========================================= */
+        function isMobileFilter() {
+            return window.innerWidth <= 1000;
+        }
 
-    if (window.innerWidth > 1000) {
-    sidebar.classList.add("closed");
-    }
+        function setExpanded(isExpanded) {
+            toggleBtn.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+        }
 
-    /* =========================================
-    TOGGLE FILTER SIDEBAR
-    ========================================= */
+        function bringFilterIntoView() {
+            sidebar.scrollTop = 0;
 
-    toggleBtn.addEventListener("click", function () {
+            if (isMobileFilter()) {
+                closeBtn.focus({ preventScroll: true });
+                return;
+            }
 
-    // MOBILE
-    if (window.innerWidth <= 1000) {
+            sidebar.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
 
-    sidebar.classList.toggle("active");
-    sidebar.classList.remove("closed");
+        function openFilter() {
+            sidebar.classList.remove("closed");
+            sidebar.classList.add("active");
+            filterWrapper.classList.add("filter-open");
+            setExpanded(true);
+            window.setTimeout(bringFilterIntoView, 80);
+        }
 
-    }
+        function closeFilter() {
+            sidebar.classList.remove("active");
+            sidebar.classList.add("closed");
+            filterWrapper.classList.remove("filter-open");
+            setExpanded(false);
+        }
 
-    // DESKTOP
-    else {
+        closeFilter();
 
-    sidebar.classList.toggle("closed");
+        toggleBtn.addEventListener("click", function () {
+            if (sidebar.classList.contains("closed")) {
+                openFilter();
+            } else {
+                closeFilter();
+            }
+        });
 
-    }
+        closeBtn.addEventListener("click", closeFilter);
 
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && !sidebar.classList.contains("closed")) {
+                closeFilter();
+                toggleBtn.focus({ preventScroll: true });
+            }
+        });
+
+        function handleFilterButtonVisibility() {
+            const rect = categorySection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 150;
+
+            filterWrapper.classList.toggle("visible", isVisible);
+        }
+
+        handleFilterButtonVisibility();
+
+        window.addEventListener("scroll", handleFilterButtonVisibility, { passive: true });
+        window.addEventListener("resize", function () {
+            closeFilter();
+            handleFilterButtonVisibility();
+        });
     });
-
-    /* =========================================
-    CLOSE BUTTON
-    ========================================= */
-
-    closeBtn.addEventListener("click", function () {
-
-    if (window.innerWidth <= 1000) {
-
-    sidebar.classList.remove("active");
-
-    }
-
-    sidebar.classList.add("closed");
-
-    });
-
-    /* =========================================
-    SHOW BUTTON ONLY INSIDE CATEGORY SECTION
-    ========================================= */
-
-    function handleFilterButtonVisibility() {
-
-    if (!categorySection) return;
-
-    const rect = categorySection.getBoundingClientRect();
-
-    const isVisible =
-    rect.top < window.innerHeight &&
-    rect.bottom > 150;
-
-    if (isVisible) {
-
-    filterWrapper.classList.add("visible");
-
-    } else {
-
-    filterWrapper.classList.remove("visible");
-
-    }
-    }
-
-    /* =========================================
-    INITIAL CHECK
-    ========================================= */
-
-    handleFilterButtonVisibility();
-
-    /* =========================================
-    SCROLL EVENT
-    ========================================= */
-
-    window.addEventListener("scroll", function () {
-
-    handleFilterButtonVisibility();
-
-    });
-
-    /* =========================================
-    RESIZE EVENT
-    ========================================= */
-
-    window.addEventListener("resize", function () {
-
-    handleFilterButtonVisibility();
-
-    });
-
-    });
-
 </script>
