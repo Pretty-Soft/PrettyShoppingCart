@@ -1034,7 +1034,7 @@ label, label + * {
 
   .header-links li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 5px;
   }
 
   .header-links span,
