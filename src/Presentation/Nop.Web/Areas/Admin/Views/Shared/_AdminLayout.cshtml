@@ -72,15 +72,15 @@
         else
         {
             @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.HeaderBefore })
-            <nav class="main-header navbar navbar-expand-md navbar-dark bg-dark">
+            <nav class="main-header navbar navbar-expand-md navbar-light">
                 <ul class="navbar-nav pl-2 pl-md-0">
                     <li class="nav-item">
                         <a class="nav-link" id="nopSideBarPusher" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                     </li>
                     @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.HeaderToggleAfter })
                 </ul>
-                <a href="@Url.Content("~/Admin")" class="brand-link navbar-dark">
-                    <img src="~/css/admin/images/logo.png" alt="logo.png" class="brand-image logo d-block d-md-none d-sm-block d-sm-none">
+                <a href="@Url.Content("~/Admin")" class="brand-link pm-mobile-brand d-md-none">
+                    <img src="~/css/admin/images/logo.png" alt="Pretty Mart" class="brand-image logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -156,7 +156,7 @@
         {
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-            <a href="@Url.Content("~/Admin")" class="brand-link navbar-dark logo-switch">
+            <a href="@Url.Content("~/Admin")" class="brand-link logo-switch" aria-label="Pretty Mart">
                     <img src="~/css/admin/images/logo.png" alt="logo.png" class="brand-image-xl logo-xl">
                     <img src="~/css/admin/images/logo-mini.png" alt="logo.png" class="brand-image-xs logo-xs">
                 </a>
@@ -185,26 +185,18 @@
             <nop-antiforgery-token />
             @RenderBody()
         </div>
-        <div class="main-footer" style="background-color:#000;">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="row">
-                       
-                            <div class="col-md-4 col-xs-12 text-md-left text-center">
-
-                            <a href="https://www.prettymart.com.bd/" target="_blank" style="color:#fb036d;">Pretty Mart</a> ⭐ Powered by <a href="https://www.nopcommerce.com/" target="_blank" style="color:#fb036d;">nopCommerce</a>
-                            </div>
-                       
-                        <div class="col-md-4 col-xs-12 text-center">
-                            @((await dateTimeHelper.ConvertToUserTimeAsync(DateTime.Now)).ToString("f", CultureInfo.CurrentCulture))
-                        </div>
-                        <div class="col-md-4 col-xs-12 text-md-right text-center">
-                            <b>Pretty Mart: V1</b>
-                        </div>
-                    </div>
+        <footer class="main-footer pm-admin-footer">
+            <div class="pm-footer-content">
+                <div class="pm-footer-credit">
+                    <a class="pm-footer-brand" href="https://www.prettymart.com.bd/" target="_blank" rel="noopener">Pretty Mart</a>
+                    <span class="pm-footer-attribution">Powered by <a href="https://www.nopcommerce.com/" target="_blank" rel="noopener">nopCommerce</a></span>
                 </div>
+                <div class="pm-footer-date">
+                    @((await dateTimeHelper.ConvertToUserTimeAsync(DateTime.Now)).ToString("f", CultureInfo.CurrentCulture))
+                </div>
+                <span class="pm-footer-version">Pretty Mart · V1</span>
             </div>
-        </div>
+        </footer>
     </div>
 
     <script>
@@ -227,7 +219,7 @@
             </script>
         }
     }
-    <a id="backTop" class="btn btn-back-top bg-teal"></a>
+    <a id="backTop" class="btn btn-back-top" href="#" aria-label="Back to top"></a>
     <script>
         $(function() {
             //enable "back top" arrow

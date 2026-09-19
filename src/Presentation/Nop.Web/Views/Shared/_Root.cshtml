@@ -4,8 +4,8 @@
 @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.BodyStartHtmlTagAfter })
 @{ await Html.RenderPartialAsync("_Notifications"); }
 @{ await Html.RenderPartialAsync("_JavaScriptDisabledWarning"); }
+@await Component.InvokeAsync(typeof(AdminHeaderLinksViewComponent))
 <div class="master-wrapper-page">
-    @await Component.InvokeAsync(typeof(AdminHeaderLinksViewComponent))
     @{ await Html.RenderPartialAsync("_Header"); }
     <script asp-location="Footer">
         var localized_data = {
