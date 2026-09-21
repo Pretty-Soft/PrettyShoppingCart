@@ -53,6 +53,23 @@ else
 <link rel="stylesheet" href="~/css/admin/pretty-mart.css" asp-append-version="true">
 
 @NopHtml.GenerateCssFiles()
+<style>
+    /* Apply the selected child menu colors after any generated admin styles. */
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active,
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active:hover,
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active:focus-visible {
+        color: #991044 !important;
+        background-color: #fceaf1 !important;
+    }
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active:hover,
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active:focus-visible {
+        color: #54278a !important;
+        background-color: #e7d9fa !important;
+    }
+    .main-sidebar.sidebar-dark-primary .nav-sidebar .nav-treeview > .nav-item > .nav-link.active :is(p, .nav-icon, .right) {
+        color: inherit !important;
+    }
+</style>
 
 @* scripts *@
 <script asp-location="None" src="~/lib_npm/jquery/jquery.min.js"></script>

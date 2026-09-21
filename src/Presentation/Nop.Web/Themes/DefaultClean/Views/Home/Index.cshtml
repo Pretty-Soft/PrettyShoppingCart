@@ -2,6 +2,7 @@
 @using Nop.Core
 @inject ILocalizationService localizationService
 @inject IStoreContext storeContext
+@inject Nop.Web.Factories.ITopicModelFactory topicModelFactory
 
 @{
     Layout = "_ColumnsOne";
@@ -15,6 +16,7 @@
     }
 
     var homepageDescription = await localizationService.GetLocalizedAsync(await storeContext.GetCurrentStoreAsync(), s => s.HomepageDescription);
+    var welcomeTopic = await topicModelFactory.PrepareTopicModelBySystemNameAsync("HomepageText");
 
     //meta
     if (!string.IsNullOrEmpty(homepageDescription))
@@ -29,7 +31,17 @@
     <div class="page-body">
         <div class="pm-hero-layout">
             @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HomepageTop })
-            @await Component.InvokeAsync(typeof(TopicBlockViewComponent), new { systemName = "HomepageText" })
+            @if (welcomeTopic != null)
+            {
+                @await Component.InvokeAsync(typeof(TopicBlockViewComponent), new { systemName = "HomepageText" })
+            }
+            else
+            {
+                <div class="topic-block pm-welcome-fallback">
+                    <div class="topic-block-title"><h2>Welcome to our store</h2></div>
+                    <div class="topic-block-body"><p>Explore our collection and find something you love.</p></div>
+                </div>
+            }
         </div>
         @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
         @await Component.InvokeAsync(typeof(HomepageCategoriesViewComponent))
