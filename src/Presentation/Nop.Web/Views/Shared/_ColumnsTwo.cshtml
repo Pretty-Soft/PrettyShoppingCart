@@ -25,6 +25,8 @@
     {
         currentProductId = Convert.ToInt32(Url.ActionContext.RouteData.Values["productId"].ToString());
     }
+
+    var hasCatalogFilters = IsSectionDefined("CatalogFilters");
 }
 
 @await RenderSectionAsync("Breadcrumb", false)
@@ -34,12 +36,19 @@
 <div class="page category-page-layout">
 
     <!-- FLOATING FILTER BUTTON -->
-    <div class="mobile-filter-toggle">
-        <button type="button" class="filter-toggle-btn" aria-controls="left-side-filter" aria-expanded="false">
-            <span class="filter-icon">☰</span>
-            <span>Filter</span>
-        </button>
-    </div>
+    @if (hasCatalogFilters)
+    {
+        <div class="mobile-filter-toggle">
+            <button type="button" class="filter-toggle-btn" aria-controls="left-side-filter" aria-expanded="false" aria-label="Filter">
+                <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M4 7h16M4 17h16" />
+                    <circle cx="9" cy="7" r="2" fill="currentColor" />
+                    <circle cx="15" cy="17" r="2" fill="currentColor" />
+                </svg>
+                <span>Filter</span>
+            </button>
+        </div>
+    }
 
     <!-- SIDEBAR -->
     <div class="side-2 closed" id="left-side-filter">
@@ -134,6 +143,11 @@
         const closeBtn = document.querySelector(".filter-close");
         const filterWrapper = document.querySelector(".mobile-filter-toggle");
         const categorySection = document.querySelector(".category-page-layout");
+
+        if (sidebar && filterWrapper && !sidebar.querySelector(".product-filters, .filter-title")) {
+            filterWrapper.remove();
+            return;
+        }
 
         if (!sidebar || !toggleBtn || !closeBtn || !filterWrapper || !categorySection) {
             return;
