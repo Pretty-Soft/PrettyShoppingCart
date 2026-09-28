@@ -756,7 +756,8 @@
 .master-wrapper-page .page :is(.button-1, .button-2):focus-visible { outline: 2px solid var(--pm-hover); outline-offset: 3px; }
 .master-wrapper-page .page :is(.button-1, .button-2):disabled { opacity: .55; cursor: not-allowed; }
 
-.master-wrapper-page .page .product-grid > .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 5px; overflow: visible; padding: 0; }
+/* Keep empty product columns so sparse grids retain the standard card width. */
+.master-wrapper-page .page .product-grid > .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 5px; overflow: visible; padding: 0; }
 .master-wrapper-page .page .product-grid > .item-grid::after { display: none; }
 .master-wrapper-page .page .product-grid > .item-grid > .item-box { float: none; clear: none; width: 100% !important; min-width: 0; max-width: none; margin: 0 !important; padding: 0; border: 1px solid var(--pm-line); border-radius: 16px; background: #fff; box-shadow: 0 3px 12px rgb(64 24 42 / 5%); }
 .master-wrapper-page .page .product-grid .product-item { display: flex; flex-direction: column; align-items: stretch; height: 100%; gap: 0; padding: 10px; }
@@ -829,7 +830,7 @@
   .html-home-page .master-wrapper-page .home-page-category-grid .picture a::before { display: none; }
   .html-home-page .master-wrapper-page .home-page-category-grid .category-item .title { width: 100%; overflow-wrap: anywhere; font-size: 12px; line-height: 15px; }
   .html-home-page .master-wrapper-page .home-page :is(.home-page-product-grid, .bestsellers) > .item-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 5px;
     justify-content: stretch;
   }
@@ -847,7 +848,7 @@
 
 /* Category results use the same compact portrait preview as the home page. */
 .master-wrapper-page .category-page .product-grid:not(.featured-product-grid) > .item-grid {
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 5px;
   justify-content: stretch;
 }
